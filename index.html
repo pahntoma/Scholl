@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Училищен вестник – Йордан Йовков</title>
+
+    <style>
+        /* Тъмен, училищен, минималистичен с анимация при скрол */
+        :root {
+            --bg: #0c0c1a;
+            --accent: #6d5dfc;
+            --accent2: #00e3aa;
+            --text: #f5f5f5;
+            --card-bg: #151526;
+            --shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            scroll-behavior: smooth;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 80px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        header {
+            background: #1a1a2e;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            border-bottom: 1px solid #2c2c3d;
+            z-index: 20;
+        }
+
+        .logo svg {
+            width: 50px;
+            height: 50px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 22px;
+            list-style: none;
+            font-weight: 600;
+        }
+        nav a {
+            color: var(--text);
+            transition: 0.2s;
+            text-decoration: none;
+        }
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        #hero {
+            background: linear-gradient(135deg, #111126, #0c0c1a);
+            text-align: center;
+        }
+
+        #hero h1 {
+            font-size: 52px;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        #hero p {
+            font-size: 20px;
+            opacity: .9;
+        }
+
+        #news h2, #team h2 {
+            font-size: 40px;
+            color: var(--accent2);
+            margin-bottom: 20px;
+        }
+
+        .news-card {
+            width: 60%;
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: var(--shadow);
+            margin: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .news-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+        }
+
+        #team p {
+            max-width: 700px;
+            font-size: 18px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        footer {
+            background: #1a1a2e;
+            padding: 35px;
+            text-align: center;
+            border-top: 1px solid #2c2c3d;
+            color: var(--text);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#6d5dfc" />
+            <stop offset="100%" stop-color="#00e3aa" />
+        </linearGradient>
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    <rect x="20" y="20" width="160" height="160" rx="25" fill="url(#grad)" filter="url(#glow)" />
+    <path d="M70 60 L100 120 L130 60" stroke="#ffffff" stroke-width="10" stroke-linecap="round" filter="url(#glow)" />
+    <path d="M100 120 L100 150" stroke="#ffffff" stroke-width="10" stroke-linecap="round" filter="url(#glow)" />
+</svg>
+        <h2>Училищен вестник – Йордан Йовков</h2>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#hero">Начало</a></li>
+            <li><a href="#news">Новини</a></li>
+            <li><a href="#team">Екип</a></li>
+            <li><a href="#footer">Контакти</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="hero">
+    <h1>Добре дошли във вестника!</h1>
+    <p>Събития, новини и гласът на нашето училище.</p>
+</section>
+
+<section id="news">
+    <h2>Последни новини</h2>
+
+    <div class="news-card">
+        <h3>Откриване на STEM център</h3>
+        <p>Новата лаборатория отвори врати за иновативно обучение.</p>
+    </div>
+
+    <div class="news-card">
+        <h3>Европейска седмица на програмирането</h3>
+        <p>Учениците се включиха в серия от технологични инициативи.</p>
+    </div>
+
+    <div class="news-card">
+        <h3>Награден ученик</h3>
+        <p>Ученик от СУ „Йордан Йовков“ бе отличен на национално състезание.</p>
+    </div>
+</section>
+
+<section id="team">
+    <h2>За екипа</h2>
+    <p>
+        Нашият екип включва трима отдадени и амбициозни ученици, които влагат сърце и енергия във всяка
+        новина, интервю и статия. Те не просто събират информация – те търсят истини, задават въпроси,
+        анализират и представят фактите по начин, който да вдъхновява цялата училищна общност.
+        <br><br>
+        Всеки член от екипа разполага със свой уникален стил: един е майстор на детайлите и винаги проверява
+        фактите до последната запетайка; вторият е творческата искра, която превръща сухата информация в
+        интересни и въздействащи текстове; третият е човекът, който вижда голямата картина и умее да свързва
+        новините с живота в училище и извън него.
+        <br><br>
+        Заедно те изграждат вестника като платформа, която дава глас на учениците, отразява събитията,
+        развива училищната култура и насърчава критичното мислене.
+    </p>
+</section>
+
+<section id="footer">
+    <footer>
+        <p><strong>гр. Сливен 8800, кв. "Българка"</strong><br>
+        <strong>e-mail:</strong> info-2000114@edu.mon.bg<br>
+        <strong>Директор:</strong> 044/ 66 72 44</p>
+
+        <p class="authors">Автори: Николай Станчев, Венцислав Колев, Мартин Маринчев</p>
+    </footer>
+</section>
+
+<script>
+    // Анимация при скрол
+    const sections = document.querySelectorAll('section');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+</script>
+
+</body>
+</html>
